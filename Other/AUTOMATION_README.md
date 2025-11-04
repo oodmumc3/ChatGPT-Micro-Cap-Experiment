@@ -1,187 +1,206 @@
-# Automated Trading System
+# 자동화된 거래 시스템
 
-This system automates the ChatGPT Micro-Cap trading experiment by integrating LLM APIs to generate trading decisions automatically.
+이 시스템은 LLM API를 통합하여 거래 결정을 자동으로 생성함으로써 ChatGPT 소형주 거래 실험을 자동화합니다.
 
-## Features
+## 기능
 
-- **Automated Prompt Generation**: Creates daily trading prompts with current portfolio data
-- **LLM Integration**: Supports OpenAI GPT API
-- **Trade Execution**: Parses LLM responses and executes recommended trades
-- **Risk Management**: Includes confidence thresholds and dry-run modes
-- **Logging**: Saves all LLM responses and trading decisions
+  * **자동 프롬프트 생성**: 현재 포트폴리오 데이터를 포함하여 일일 거래 프롬프트를 생성합니다.
+  * **LLM 통합**: OpenAI GPT API를 지원합니다.
+  * **거래 실행**: LLM 응답을 구문 분석하고 추천된 거래를 실행합니다.
+  * **위험 관리**: 신뢰도 임계값 및 시험 실행(dry-run) 모드를 포함합니다.
+  * **로깅**: 모든 LLM 응답 및 거래 결정을 저장합니다.
 
-## Setup
+## 설정
 
-### 1. Install Dependencies
+### 1\. 의존성 설치
 
 ```bash
 pip install -r requirements.txt
 pip install openai
 ```
 
-### 2. Get API Key
+### 2\. API 키 확보
 
-- **OpenAI**: Get your API key from [OpenAI Platform](https://platform.openai.com/api-keys)
+  * **OpenAI**: [OpenAI Platform](https://platform.openai.com/api-keys)에서 API 키를 받으세요.
 
-### 3. Set Environment Variable
+### 3\. 환경 변수 설정
 
 ```bash
-# For OpenAI
-export OPENAI_API_KEY="your-openai-api-key"
+# OpenAI의 경우
+export OPENAI_API_KEY="당신의-openai-api-키"
 ```
 
-## Usage
+## 사용법
 
-The `simple_automation.py` script provides automated trading decisions:
+`simple_automation.py` 스크립트는 자동화된 거래 결정을 제공합니다.
 
 ```bash
-# Basic usage with OpenAI
-python simple_automation.py --api-key YOUR_OPENAI_KEY
+# OpenAI를 사용한 기본 사용법
+python simple_automation.py --api-key 당신의_OPENAI_키
 
-# Using environment variable
-export OPENAI_API_KEY="your-key"
+# 환경 변수 사용
+export OPENAI_API_KEY="당신의-키"
 python simple_automation.py
 
-# Dry run (no actual trades executed)
+# 시험 실행 (실제 거래는 실행되지 않음)
 python simple_automation.py --dry-run
 
-# Custom model
+# 사용자 지정 모델
 python simple_automation.py --model gpt-3.5-turbo
 ```
 
-## How It Works
+## 작동 원리
 
-### 1. Portfolio Analysis
-- Loads current portfolio state from CSV files
-- Calculates cash balance and total equity
-- Formats holdings data for LLM consumption
+### 1\. 포트폴리오 분석
 
-### 2. Prompt Generation
-- Creates structured prompts with portfolio data
-- Includes trading rules and constraints
-- Requests JSON-formatted responses
+  * CSV 파일에서 현재 포트폴리오 상태를 불러옵니다.
+  * 현금 잔고 및 총 자산을 계산합니다.
+  * LLM 사용을 위해 보유 데이터 형식을 지정합니다.
 
-### 3. LLM Processing
-- Sends prompts to chosen LLM API
-- Receives trading recommendations
-- Parses JSON responses for trade details
+### 2\. 프롬프트 생성
 
-### 4. Trade Execution
-- Validates trade recommendations
-- Checks cash availability and position limits
-- Executes approved trades (or logs in dry-run mode)
+  * 포트폴리오 데이터를 포함하여 구조화된 프롬프트를 생성합니다.
+  * 거래 규칙 및 제약 조건을 포함합니다.
+  * JSON 형식의 응답을 요청합니다.
 
-## Configuration
+### 3\. LLM 처리
 
-### LLM Settings
-- **Temperature**: 0.3 (lower for more consistent decisions)
-- **Max Tokens**: 1500-2000 (adjust based on model)
-- **Model**: GPT-4 recommended for best results
+  * 선택한 LLM API에 프롬프트를 전송합니다.
+  * 거래 추천을 수신합니다.
+  * 거래 세부 정보를 위해 JSON 응답을 구문 분석합니다.
 
-### Trading Rules
-- Maximum position size: 10% of portfolio
-- Minimum confidence threshold: 70%
-- Cash reserve: Minimum $500
-- Micro-cap focus: <$300M market cap
+### 4\. 거래 실행
 
-## Output Files
+  * 거래 추천을 검증합니다.
+  * 현금 가용성 및 포지션 한도를 확인합니다.
+  * 승인된 거래를 실행합니다 (또는 시험 실행 모드에서 기록합니다).
 
-### LLM Responses
-- `llm_responses.jsonl`: All LLM interactions and responses
-- `automated_trades.jsonl`: All automated trading decisions
+## 구성
 
-### Portfolio Updates
-- Uses existing CSV files from the original trading script
-- Maintains compatibility with manual trading system
+### LLM 설정
 
-## Safety Features
+  * **온도(Temperature)**: 0.3 (일관된 결정을 위해 낮은 값 사용)
+  * **최대 토큰**: 1500–2000 (모델에 따라 조정)
+  * **모델**: 최상의 결과를 위해 GPT-4를 권장합니다.
 
-### Dry Run Mode
-Always test with `--dry-run` first to see what trades would be executed:
+### 거래 규칙
+
+  * 최대 포지션 규모: 포트폴리오의 10%
+  * 최소 신뢰도 임계값: 70%
+  * 현금 준비금: 최소 $500
+  * 소형주 초점: 시가총액 3억 달러 미만
+
+## 출력 파일
+
+### LLM 응답
+
+  * `llm_responses.jsonl`: 모든 LLM 상호 작용 및 응답
+  * `automated_trades.jsonl`: 모든 자동화된 거래 결정
+
+### 포트폴리오 업데이트
+
+  * 원래 거래 스크립트의 기존 CSV 파일을 사용합니다.
+  * 수동 거래 시스템과의 호환성을 유지합니다.
+
+## 안전 기능
+
+### 시험 실행 모드 (Dry Run Mode)
+
+어떤 거래가 실행될지 확인하기 위해 항상 `--dry-run`으로 먼저 테스트하세요.
 
 ```bash
 python simple_automation.py --dry-run
 ```
 
-### Confidence Thresholds
-The system includes confidence scoring to avoid low-quality recommendations.
+### 신뢰도 임계값
 
-### Error Handling
-- Graceful handling of API failures
-- JSON parsing error recovery
-- Invalid trade validation
+시스템에는 품질이 낮은 추천을 방지하기 위한 신뢰도 점수 시스템이 포함되어 있습니다.
 
-## Integration with Existing System
+### 오류 처리
 
-The automation system is designed to work alongside the existing manual trading system:
+  * API 실패에 대한 우아한 처리
+  * JSON 구문 분석 오류 복구
+  * 유효하지 않은 거래 검증
 
-1. **Same Data Files**: Uses the same CSV files as the manual system
-2. **Compatible Format**: Maintains the same portfolio and trade log formats
-3. **Fallback Support**: Can switch between automated and manual modes
+## 기존 시스템과의 통합
 
-## Example Workflow
+자동화 시스템은 기존 수동 거래 시스템과 함께 작동하도록 설계되었습니다.
+
+1.  **동일한 데이터 파일**: 수동 시스템과 동일한 CSV 파일을 사용합니다.
+2.  **호환 가능한 형식**: 동일한 포트폴리오 및 거래 기록 형식을 유지합니다.
+3.  **대체 지원**: 자동화 모드와 수동 모드 간 전환이 가능합니다.
+
+## 예시 작업 흐름
 
 ```bash
-# 1. Test the system with dry run
+# 1. 시험 실행으로 시스템 테스트
 python simple_automation.py --dry-run
 
-# 2. Run automated trading
+# 2. 자동화된 거래 실행
 python simple_automation.py
 
-# 3. Review results
+# 3. 결과 검토
 cat "Start Your Own/llm_responses.jsonl" | tail -1
 
-# 4. Check portfolio updates
+# 4. 포트폴리오 업데이트 확인
 python "Start Your Own/Trading_Script.py"
 ```
 
-## Troubleshooting
+## 문제 해결
 
-### Common Issues
+### 일반적인 문제
 
-1. **API Key Not Found**
-   ```bash
-   export OPENAI_API_KEY="your-key"
-   ```
+1.  **API 키를 찾을 수 없음**
 
-2. **JSON Parsing Errors**
-   - Check LLM response format
-   - Verify model supports structured output
-   - Try different temperature settings
+    ```bash
+    export OPENAI_API_KEY="당신의-키"
+    ```
 
-3. **Trade Execution Failures**
-   - Check cash availability
-   - Verify ticker symbols
-   - Review position size limits
+2.  **JSON 구문 분석 오류**
 
-### Debug Mode
+      * LLM 응답 형식을 확인하세요.
+      * 모델이 구조화된 출력을 지원하는지 확인하세요.
+      * 다른 온도 설정을 시도해 보세요.
 
-Add verbose logging by modifying the scripts to print more details about the LLM interactions.
+3.  **거래 실행 실패**
 
-## Customization
+      * 현금 가용성을 확인하세요.
+      * 종목 기호가 올바른지 확인하세요.
+      * 포지션 규모 제한을 검토하세요.
 
-### Custom Prompts
-Modify the `generate_trading_prompt()` function to customize the prompts sent to the LLM.
+### 디버그 모드
 
-### Different Models
-Experiment with different models:
-- `gpt-4`: Best performance, higher cost
-- `gpt-3.5-turbo`: Good performance, lower cost
+스크립트를 수정하여 LLM 상호 작용에 대한 자세한 정보를 출력하도록 하여 상세 로깅을 추가하세요.
 
-### Trading Rules
-Adjust risk parameters in the configuration or modify the validation logic.
+## 사용자 정의
 
-## Security Notes
+### 사용자 지정 프롬프트
 
-- Never commit API keys to version control
-- Use environment variables for sensitive data
-- Consider rate limiting for API calls
-- Monitor API usage and costs
+`generate_trading_prompt()` 함수를 수정하여 LLM에 전송되는 프롬프트를 사용자 지정하세요.
 
-## Support
+### 다른 모델
 
-For issues or questions:
-1. Check the troubleshooting section
-2. Review the LLM response logs
-3. Test with dry-run mode first
-4. Verify API key permissions and quotas
+다른 모델로 실험해 보세요.
+
+  * `gpt-4`: 최고의 성능, 더 높은 비용
+  * `gpt-3.5-turbo`: 좋은 성능, 더 낮은 비용
+
+### 거래 규칙
+
+구성에서 위험 매개변수를 조정하거나 검증 로직을 수정하세요.
+
+## 보안 참고 사항
+
+  * 버전 관리 시스템에 API 키를 커밋하지 마십시오.
+  * 민감한 데이터에는 환경 변수를 사용하세요.
+  * API 호출에 대한 속도 제한을 고려하세요.
+  * API 사용량 및 비용을 모니터링하세요.
+
+## 지원
+
+문제 또는 질문이 있는 경우:
+
+1.  문제 해결 섹션을 확인하세요.
+2.  LLM 응답 로그를 검토하세요.
+3.  시험 실행 모드로 먼저 테스트하세요.
+4.  API 키 권한 및 할당량을 확인하세요.

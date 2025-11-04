@@ -1,39 +1,37 @@
-# DISCLAIMER
+# 면책 조항
 
-This project is a research and educational experiment designed to explore the capabilities of large language models (LLMs) in analyzing financial markets, constructing portfolios, and generating stock trading insights. It is not — and should not be interpreted as — financial advice, investment guidance, or a recommendation to buy or sell any security.
+본 프로젝트는 대규모 언어 모델(LLM)이 금융 시장을 분석하고, 포트폴리오를 구성하며, 주식 거래 통찰력을 생성하는 능력을 탐구하기 위해 고안된 연구 및 교육 목적의 실험입니다. 이것은 재정적 조언, 투자 안내 또는 특정 증권을 매매하라는 추천으로 간주되어서는 안 되며, 그렇게 해석되어서도 안 됩니다.
 
-## Research Purpose Only
+## 오직 연구 목적
 
-All content, commentary, models, signals, and outcomes shared through this project are purely exploratory and do not reflect professional investment advice. The trades, stock selections, and performance figures are part of a controlled experiment using simulated or personal funds under strict conditions, including low capital exposure, micro-cap limitations, and full-disclosure risk rules.
+이 프로젝트를 통해 공유되는 모든 내용, 논평, 모델, 신호 및 결과는 순전히 탐색적인 목적이며, 전문적인 투자 조언을 반영하지 않습니다. 거래, 주식 선정, 그리고 성과 수치들은 낮은 자본 노출, 소형주(micro-cap) 제한, 그리고 위험에 대한 완전 공개 규칙을 포함한 **엄격한 조건** 하에서 시뮬레이션되거나 개인 자금을 사용하여 진행된 통제된 실험의 일부입니다.
 
-## Extremely Low Sample Size
+## 극도로 낮은 표본 크기
 
-All results presented come from a single six-month experiment with limited trades, positions, and capital. Because the dataset is so small, statistical reliability is extremely weak — trends may appear significant but are likely the result of randomness, favorable timing, or isolated market conditions. No inference should be made about the long-term viability, repeatability, or scalability of this approach. A larger dataset, across different market environments, would be required before any meaningful conclusions could be drawn.
+제시된 모든 결과는 제한된 거래, 포지션 및 자본을 사용한 **단 한 번의 6개월 실험**에서 나온 것입니다. 데이터 세트가 매우 작기 때문에 **통계적 신뢰도가 극히 낮습니다**. 겉보기에 유의미해 보이는 경향은 무작위성, 유리한 타이밍 또는 고립된 시장 상황의 결과일 가능성이 높습니다. 이러한 접근 방식의 장기적인 생존 가능성, 반복성 또는 확장성에 대해 어떠한 추론도 내려서는 안 됩니다. 의미 있는 결론을 도출하려면 다양한 시장 환경에 걸친 더 큰 데이터 세트가 필요합니다.
 
-## High-Risk Asset Class
+## 고위험 자산군
 
-This project may involve analysis of micro-cap, low-float, speculative, or illiquid securities, which can be subject to extreme volatility, bid-ask spread issues, or complete capital loss. These securities are not suitable for most investors, and any interpretation of performance or trade signals must account for significant execution risk and slippage.
+본 프로젝트는 극심한 변동성, 매수-매도 호가 차이(bid-ask spread) 문제, 또는 완전한 자본 손실의 대상이 될 수 있는 소형주(micro-cap), 유통 주식 수가 적은 주식(low-float), 투기성이 강한 또는 비유동적인 증권에 대한 분석을 포함할 수 있습니다. 이러한 증권은 대부분의 투자자에게 적합하지 않으며, 성과나 거래 신호에 대한 어떠한 해석도 상당한 실행 위험(execution risk)과 슬리피지(slippage)를 고려해야 합니다.
 
-## About the AI
+## AI에 대하여
 
-The AI system powering this experiment is not connected to any brokerage, trading API, or live market execution engine. It does not have access to real-time market data or news feeds. All decisions are based on static or historical inputs, and prompts may induce hallucinations, misinterpret context, or reflect bias from pretraining data.
+이 실험을 구동하는 AI 시스템은 어떠한 중개 회사, 거래 API 또는 실시간 시장 실행 엔진과도 연결되어 있지 않습니다. 이 시스템은 실시간 시장 데이터나 뉴스 피드에 접근할 수 없습니다. 모든 결정은 정적인 또는 과거 입력 데이터에 기반하며, 프롬프트는 환각(hallucinations)을 유도하거나, 맥락을 오해하거나, 사전 학습 데이터의 편향을 반영할 수 있습니다.
 
-## Performance & Transparency
+## 성과 및 투명성
 
-Performance metrics are provided for documentation and transparency purposes only. While effort is made to track real PnL, position size, and total equity accurately, the project does not guarantee execution parity with live trading environments. Market conditions, fills, and psychological discipline all introduce variability that cannot be replicated by AI alone.
+성과 지표는 오직 문서화 및 투명성 목적으로만 제공됩니다. 실제 손익(PnL), 포지션 규모, 총 자산을 정확하게 추적하기 위해 노력했지만, 본 프로젝트는 실거래 환경과의 실행 동등성(execution parity)을 보장하지 않습니다. 시장 상황, 체결 가격(fills), 그리고 심리적 규율은 모두 AI 단독으로는 복제할 수 없는 변동성을 야기합니다.
 
-## No Liability
+## 책임 부인
 
-The project creator(s), contributors, and any associated parties accept no responsibility or liability for any losses or decisions made based on the content of this project. Do not use this experiment as a substitute for professional financial advice.
+본 프로젝트의 제작자, 기여자 및 관련 당사자는 이 프로젝트의 내용에 기반하여 발생한 어떠한 손실이나 결정에 대해서도 책임이나 의무를 지지 않습니다. 이 실험을 전문적인 재정 조언의 대용으로 사용하지 마십시오.
 
-## What You *Can* Do
+## 여러분이 **할 수 있는** 것
 
-- Look at it as a proof-of-concept
+* 개념 증명(proof-of-concept)으로 간주하고 살펴보세요.
+* 시장 제약 조건 하에서 LLM이 어떻게 행동하는지 학습하세요.
+* 여러분 자신의 연구를 위해 이를 기반으로 구축하세요.
 
-- Learn how LLMs behave under market constraints
+질문하고, 가정에 도전하며, 책임감 있게 반복(iterate)하세요.
 
-- Build off it for your own research
-
-Ask questions, challenge assumptions, and iterate responsibly.
-
-Thanks :)
+감사합니다.

@@ -1,48 +1,45 @@
-## Q&A (Written July 26)
+## Q&A (7월 26일 작성)
 
-### Why did you remove DeepSeek after Week 1? Wouldn’t it be valuable to compare models?
-I didn’t want to fully remove it at first. I considered feeding it stock reports and letting it trade off that. But that would’ve broken the core rule: the model has to find opportunities independently. If I start feeding it filtered ideas, it's no longer testing true AI-driven alpha.
+### 1주차 이후 DeepSeek을 왜 제거했나요? 모델을 비교하는 것이 가치 있지 않나요?
+처음에는 완전히 제거하고 싶지는 않았습니다. 주식 보고서를 제공하고 그것을 기반으로 거래하게 할까도 고려했습니다. 하지만 그렇게 하면 핵심 규칙, 즉 **모델이 독립적으로 기회를 찾아야 한다**는 규칙을 위반하게 됩니다. 만약 제가 필터링된 아이디어를 제공하기 시작하면, 그것은 더 이상 진정한 AI 주도 알파(Alpha)를 테스트하는 것이 아니게 됩니다.
 
-### Why were you using R2K and XBI (BioTech ETF) as comparisons?
-I initially only used the Russell 2000, but I added XBI later after ChatGPT heavily leaned towards BioTech. Of course, looking back on it, it was a terrible idea to add metrics later. From now on, I will purely use the S&P 500 as that is the standard baseline for tests.
-### Do you ever switch chats?
-Yes. I wish I didn’t have to, but after ~2 weeks, the performance slows down too much to be usable. I always keep chats organized in the same project and reintroduce prior theses when switching, though some changes are inevitable. It’s not perfect, but it keeps continuity.
+### 왜 R2K와 XBI(바이오텍 ETF)를 비교 대상으로 사용했나요?
+처음에는 Russell 2000만 사용했지만, ChatGPT가 바이오텍에 크게 의존하는 경향을 보인 후 나중에 XBI를 추가했습니다. 물론, 지금 돌이켜보면 나중에 지표를 추가한 것은 끔찍한 생각이었습니다. 이제부터는 테스트의 표준 기준선인 **S&P 500**만을 순수하게 사용할 것입니다.
 
-### If you could start over, what would you do differently?
-I’d make sure prompts are 100% consistent from the beginning and confirm the simulation engine was airtight before logging trades.
+### 채팅방을 바꾸기도 하나요?
+네, 바꿉니다. 그러지 않아도 되기를 바라지만, 약 2주 후에는 성능이 너무 느려져서 사용할 수 없게 됩니다. 채팅방을 바꿀 때 항상 같은 프로젝트 내에서 채팅을 정리하고 이전의 논제를 다시 도입하려고 하지만, 일부 변경은 불가피합니다. 완벽하지는 않지만 연속성을 유지합니다.
 
-Can I ask you a few questions? Is ChatGPT automatically running the prompts you shared on GitHub? or do you prompt it every day? are you or is the script placing the buy/sell orders?
+### 처음부터 다시 시작할 수 있다면, 무엇을 다르게 하시겠습니까?
+프롬프트가 처음부터 100% 일관되도록 할 것이고, 거래를 기록하기 전에 시뮬레이션 엔진이 완벽하다는 것을 확인할 것입니다.
 
-### Is prompting automated?
+### 프롬프트가 자동화되어 있나요?
+현재는 아닙니다. 모든 프롬프트는 수동이지만, 일관성을 유지하기 위해 최선을 다하고 있습니다. ChatGPT API를 사용하여 자동화를 추가하고 싶지만, 그렇게 하면 주중에 거래를 실행하는 등의 문제가 발생할 수 있습니다. 충분히 가능하지만, 지금은 사용자 친화적으로 만드는 데 집중하고 싶습니다.
 
-Right now, no. All prompts are manual, but I do my best to keep things consistent.  I would love to add it using ChatGPT's API, but it would cause problems like executing trades in the in middle of the week. Absolutely doable, but I wanna focus on making it user-friendly right now.
+### 매수와 매도는요?
+역시 아닙니다. 모든 실시간 거래는 현재 수동입니다. 하지만 시뮬레이션의 경우, `Trading Script`를 실행할 때 `input()`을 통해 주문을 넣는 것이 조금 더 쉽습니다. 물론, 아직 개선할 부분이 필요합니다.
 
-### What about buying and selling?
+### 모델에서 어떤 강점이나 약점을 발견했나요?
+**강점**: 아무도 읽지 않는 바이오텍 보고서와 같은 잘 알려지지 않은 서류에서 간과된 데이터를 찾는 능력이 놀랍습니다. 또한 단기적인 모멘텀을 활용하는 데도 뛰어난 것 같습니다.
+**약점**: 인내심이 부족한 경우가 많습니다. 촉매(catalyst)의 전체 기간 동안 포지션을 유지할 수 있을지는 불분명합니다. 그리고 채팅방을 전환하면 확신을 잃고 시기상조로 포트폴리오를 재구성할 수 있습니다.
 
-Also no. All live trades are manual currently. However, for the simulation, it is slightly easier to place orders via input() when running Trading Script. Of course, still needs work.
+### 6개월 이후 계획이 있나요?
+학교에 다니는 동안 이 속도를 유지할 수 있다면, 이 아이디어를 1년 전체 버전으로 확장할 수도 있습니다.
 
-### What strengths or weaknesses have you noticed in the model?
-**Strengths**: It’s incredible at finding overlooked data in obscure filings, especially biotech reports nobody reads. It also seems to great at capitalizing on short-term momentum.
-**Weaknesses**: It often struggles with patience. It’s unclear if it can hold through the full timeline of a catalyst. And switching chats can cause it to lose conviction and restructure prematurely.
+### 최종적으로 기대하는 수익률은 얼마인가요?
+원래는 5~10%를 예상했습니다. 하지만 지금까지 달성한 비대칭적 움직임을 고려할 때, 위험 관리를 잘 할 수 있다면 **25~30%**도 가능할 것 같습니다.
 
-### Any plans after the 6 months?
-If I can keep up during school, I might extend this idea into a full-year version.
+### 왜 4o를 사용하시나요? ChatGPT에 더 나은 모델이 있지 않나요?
+솔직히 말해, 깊이 생각하지 않고 기본 모델을 사용했습니다. 더 발전된 모델로 전환할 수도 있지만, 언제, 어떤 모델로 전환할지는 명시적으로 밝힐 것입니다.
 
-### What return are you expecting by the end?
-Originally, I expected 5–10%. But with the kind of asymmetric moves it’s hit so far, I think 25–30% isn’t out of the question, if it can manage risk well.
+### 지정가 주문(limit orders)이 체결되는 것을 어떻게 보장하나요?
+실제 Vanguard 증권 계좌에서 거래를 미러링(mirror)합니다. 그곳에서 거래가 실행되면, 시뮬레이션에 체결 내역을 기록합니다.
 
-### Why are you using 4o? Doesn't ChatGPT have better models?
-To be honest, I didn't think about it and just used the default model. I may switch over to a more advanced one, but I will explicitly state when and what model. 
+### 제공된 코드로 나만의 포트폴리오를 만들 수 있나요?
+Python에 대한 이해도가 어느 정도 있다면 가능합니다. 하지만, 기존 CSV 파일의 데이터를 삭제하고 포트폴리오 딕셔너리를 수정하여 종목 코드를 변경해야 합니다. 안타깝게도 코딩을 모르는 분들은 코드를 수정하거나 삭제하지 않고는 할 수 있는 방법이 없습니다. 하지만 곧 대규모 업데이트가 있을 수 있으니 기대해 주세요!
 
-### How do you ensure the limit orders get filled?
-I mirror the trades in a real Vanguard brokerage account. If it executes there, I log the fill in the simulation.
+### 이것이 실제로 투자 전략이 될 수 있을까요?
+심각한 잠재력이 있습니다. 대부분의 개인 투자자들은 랜덤 포레스트(Random Forests)를 이용한 SPY 예측을 추구하다 실패합니다. 진정한 알파(Alpha)는 LLM이 몇 초 만에 구문 분석할 수 있는 각주, 잘 알려지지 않은 서류, 초기 단계 임상 데이터에 숨어 있습니다. 인간의 감독과 결합된다면, 이는 잠재적으로 실행 가능한 하이브리드 전략이 될 수 있습니다. 물론, 훨씬 더 엄격한 테스트가 필요합니다.
 
-### Can I create my own portfolio with the given code?
-If you know Python decently well, you can do it. However, you will have to delete existing data from the CSV files and edit to portfolio dictionary to change tickers. Sadly, for non-coders there's not a way to do it without editting or deleting code. However, there may be a massive update soon that could change that! So stay tuned.
+질문을 제출하고 싶으신가요?
 
-### Could this actually be a real investing strategy?
-It has serious potential. Most retail traders chase SPY predictions with random forests and fail. Real alpha hides in footnotes, obscure filings, and early-stage clinical data, files an LLM can parse in seconds. If combined with human oversight, this could potentially be a viable hybrid strategy. Of course, much more rigorous testing is needed. 
-
-Want to submit a question? 
-
-Please do so here: nathanbsmith.business@gmail.com
+여기로 보내주세요: **nathanbsmith.business@gmail.com**
